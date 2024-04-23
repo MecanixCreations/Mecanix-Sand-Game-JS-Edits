@@ -797,7 +797,7 @@ const config = {
         steam: Brushes.colorRandomize(4, Brushes.color(220, 210, 200, BrushDefs.STEAM)),
     },
     scenes: [
-      Scenes.custom("my-scene-1", function (sandGame) {
+      Scenes.custom("Cheese Hills", function (sandGame) {
         function t() {
           return Math.trunc(1024 * Math.random())
         }
@@ -834,6 +834,7 @@ const config = {
         sandGame.graphics().drawRectangle(o.x(68), o.y(20), o.x(69), o.y(21), U.getBrush());
         sandGame.graphics().drawRectangle(o.x(0), o.y(90), o.x(100), o.y(100), G.getBrush());
       }),
+      SceneDefs.SCENE_EMPTY,
       SceneDefs.SCENE_LANDSCAPE_1,
       SceneDefs.SCENE_LANDSCAPE_2,
       SceneDefs.SCENE_FALLTHROUGH,
