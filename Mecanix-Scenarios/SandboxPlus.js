@@ -1,4 +1,4 @@
-//Sandbox Plus; mecanix creations
+//Cheese Game; mecanix creations
 const Brushes = window.SandGameJS.Brushes;
 const BrushDefs = window.SandGameJS.BrushDefs;
 const Tools = window.SandGameJS.Tools;
@@ -271,7 +271,7 @@ const RED_TILED = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(4, Bru
         backgroundColor: "rgb(186,45,45)"
     }
 }));
-const BRICKS = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(4, Brushes.colorTexture(img$60, BrushDefs.ROCK)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
+const BRICKS = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$60, BrushDefs.WALL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
     codeName: "bricks",
     displayName: "Bricks",
     badgeStyle: {
