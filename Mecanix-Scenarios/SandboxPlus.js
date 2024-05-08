@@ -236,7 +236,7 @@ const F = extendTool("grass_mac", "218,116,3\r\n238,136,23\r\n228,126,13", 218, 
 const U = extendTool("tree_pasta", "221,180,117", 221, 180, 117, BrushDefs.TREE, "Pasta Tree", 9, 1);
 const J = extendTool("tree_spagetti", "251,219,101", 251, 219, 101, BrushDefs.TREE_LEAF_LIGHTER, "Spagetti Leaf", 9, ToolDefs.DEFAULT_SIZE);
 const G = extendTool("pasta_natural", "221,180,117\r\n227,203,156", 221, 180, 117, BrushDefs.TREE_WOOD, "Hard Pasta", 6, ToolDefs.DEFAULT_SIZE);
-const p = extendTool("knife_cut", "221,180,117\r\n227,203,156", 255, 186, 119, BrushDefs.AIR, "Knife Cut", 6, 2);
+const p = extendTool("knife_cut", "255,255,255", 100, 100, 100, BrushDefs.AIR, "Slash", 6, 2);
 const H = extendTool("velveta ", "255, 166, 0", 255, 166, 0, BrushDefs.WATER, "Cheese Sauce", 1, ToolDefs.DEFAULT_SIZE);
 const I = extendTool("thermite_cheese", "242, 124, 66", 242, 124, 66, BrushDefs.THERMITE, "Quick Igniting Cheese", 15, ToolDefs.DEFAULT_SIZE);
 const FF = extendTool("cheese_ignite", "255,186,119", 255, 186, 119, BrushDefs.FIRE, "Cheese Based Igniter", 15, 16);
@@ -956,7 +956,7 @@ const RR = Tools.templateSelectionTool([
 }));
 
 const config = {
-    tools: [TT, ToolDefs.MOVE, ToolDefs.FLIP_VERTICALLY, ToolDefs.SAND,ToolDefs.SOIL,ToolDefs.GRAVEL,ToolDefs.WOOD,ToolDefs.METAL,ToolDefs.ROCK,ToolDefs.ROCK_TEMPLATES,ToolDefs.WALL,BRICKS,ToolDefs.COAL,ToolDefs.THERMITE,ToolDefs.WATER,ToolDefs.METAL_MOLTEN,SAND_1,SAND_2,SAND_3,SAND_4,SAND_5,SAND_6,mySandTool,myTextureTool, u, i, h, f, g, F, U, J, G, p, H, I, VV, CC, EE, AA, FF, RR, BASIC_SHREDDED, BASIC_TILED, LIGHT_SHREDDED, LIGHT_TILED, SHARP_SHREDDED, SHARP_TILED, RED_SHREDDED, RED_TILED, WHITE_SHREDDED, WHITE_TILED, BLUE_SHREDDED, BLUE_TILED, BLACK_SHREDDED, BLACK_TILED, GLOB_SHREDDED, GLOB_SOLID, GLOB_TILED, ToolDefs.METAL, ToolDefs.FIRE, ToolDefs.METEOR, ToolDefs.EFFECT_TEMP_MINUS, ToolDefs.EFFECT_TEMP_PLUS, ToolDefs.EFFECT_TEMP_PLUS2 /*c.SAND,c.ERASE_SLASH,c.FIRE_SLASH,c.HOT_SLASH,c.COLD_SLASH, c.WATER,  c.SOIL, c.GRAVEL, c.COAL,   c.ROCK_TEMPLATES, c.TEMPLATES, c.ROCK,c.TAR, c.WOOD,c.WOOD_1,c.LEAF,c.LEAF_1,c.GRASSPLACE, c.GLASS,c.METAL, c.STEEL, c.BRASS, c.GLASS_MOLTEN,c.METAL_MOLTEN,c.STEEL_MOLTEN, c.BRASS_MOLTEN,c.LAVA,*/],
+    tools: [ToolDefs.ERASE, ToolDefs.MOVE, ToolDefs.FLIP_VERTICALLY, ToolDefs.SAND,ToolDefs.SOIL,ToolDefs.GRAVEL,ToolDefs.WOOD,ToolDefs.METAL,ToolDefs.ROCK,ToolDefs.ROCK_TEMPLATES,ToolDefs.WALL,BRICKS,ToolDefs.COAL,ToolDefs.THERMITE,ToolDefs.WATER,ToolDefs.METAL_MOLTEN,SAND_1,SAND_2,SAND_3,SAND_4,SAND_5,SAND_6,mySandTool,myTextureTool, u, i, h, f, g, F, U, J, G, p, H, I, VV, CC, EE, AA, FF, RR, BASIC_SHREDDED, BASIC_TILED, LIGHT_SHREDDED, LIGHT_TILED, SHARP_SHREDDED, SHARP_TILED, RED_SHREDDED, RED_TILED, WHITE_SHREDDED, WHITE_TILED, BLUE_SHREDDED, BLUE_TILED, BLACK_SHREDDED, BLACK_TILED, GLOB_SHREDDED, GLOB_SOLID, GLOB_TILED, ToolDefs.METAL, ToolDefs.FIRE, ToolDefs.METEOR, ToolDefs.EFFECT_TEMP_MINUS, ToolDefs.EFFECT_TEMP_PLUS, ToolDefs.EFFECT_TEMP_PLUS2 /*c.SAND,c.ERASE_SLASH,c.FIRE_SLASH,c.HOT_SLASH,c.COLD_SLASH, c.WATER,  c.SOIL, c.GRAVEL, c.COAL,   c.ROCK_TEMPLATES, c.TEMPLATES, c.ROCK,c.TAR, c.WOOD,c.WOOD_1,c.LEAF,c.LEAF_1,c.GRASSPLACE, c.GLASS,c.METAL, c.STEEL, c.BRASS, c.GLASS_MOLTEN,c.METAL_MOLTEN,c.STEEL_MOLTEN, c.BRASS_MOLTEN,c.LAVA,*/],
     brushes: {
     //    wall: Brushes.colorRandomize(5, Brushes.colorTexture(img$a, BrushDefs.WALL)),
     //    tree_wood: Brushes.colorRandomize(5, Brushes.colorTexture(img$e, BrushDefs.TREE_WOOD)),
