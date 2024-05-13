@@ -6,6 +6,7 @@ const ToolDefs = window.SandGameJS.ToolDefs;
 const Scenes = window.SandGameJS.Scenes;
 const SceneDefs = window.SandGameJS.SceneDefs;
 const PredicateDefs = window.SandGameJS.PredicateDefs;
+const EntityFactories = window.SandGameJS.EntityFactories;
 
 const img$1 = "data:image/png;base64,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";
 const img$2 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKFJREFUOE9jvHG06T+fmB7Dz28vGUDg55eXDCj8ry8Z+EQR8l/f32UQkraCq2fEZgBIwdePdyEGUmoAuo0EXQBSIKbgBncBugZ0F2F4AZsByAYSNAAUiMhhgG4gUQYgxwLVDSAYiOjpgORYIMsAlISDJSUKSSESFlYvoIc6clIFhTqyAVhjAa8BaNFKsQEEYwEj6RLInViTMnoYIGdndC8AAKMLhKB4CiI3AAAAAElFTkSuQmCC"
@@ -216,20 +217,20 @@ function extendTool(codename, palette, r, g, b, originalBrush, displayName, x, s
     }))
 }
 
-const i = extendTool("blue_cheese", "217,205,181\r\n201,195,165\r\n201,181,148\r\n62,102,141\r\n154,167,180", 62, 102, 141, BrushDefs.SAND, "Blue Cheese", 4, ToolDefs.DEFAULT_SIZE);
-const u = extendTool("red_cheese", "136,33,33\r\n161,39,39\r\n186,45,45\r\n207,55,55\r\n213,80,80\r\n217,181,181\r\n201,148,148\r\n201,165,165", 136, 33, 33, BrushDefs.SAND, "Red Cheese", 4, ToolDefs.DEFAULT_SIZE);
-const h = extendTool("cheddar_jack_cheese", "229,172,26\r\n229,156,26\r\n238,211,172\r\n253,230,191", 229, 172, 26, BrushDefs.GRAVEL, "Cheddar Jack", 7, ToolDefs.DEFAULT_SIZE);
-const f = extendTool("test_cheddar_cheese", "249,192,46\r\n249,176,46", 249, 192, 46, BrushDefs.SOIL, "(old) Grated Cheddar Cheese", 8, ToolDefs.DEFAULT_SIZE);
-const g = extendTool("parmesian_cheese", "228,211,162\r\n233,220,181\r\n239,229,199\r\n244,237,218\r\n250,246,236", 228, 211, 162, BrushDefs.SAND, "Parmesian Cheese", 2, ToolDefs.DEFAULT_SIZE);
-const F = extendTool("grass_mac", "218,116,3\r\n238,136,23\r\n228,126,13", 218, 116, 3, BrushDefs.GRASS, "Mac n Cheese", 2, ToolDefs.DEFAULT_SIZE);
-const U = extendTool("tree_pasta", "221,180,117", 221, 180, 117, BrushDefs.TREE, "Pasta Tree", 9, 1);
-const J = extendTool("tree_spagetti", "251,219,101", 251, 219, 101, BrushDefs.TREE_LEAF_LIGHTER, "Spagetti Leaf", 9, ToolDefs.DEFAULT_SIZE);
-const G = extendTool("pasta_natural", "221,180,117\r\n227,203,156", 221, 180, 117, BrushDefs.TREE_WOOD, "Hard Pasta", 6, ToolDefs.DEFAULT_SIZE);
-const p = extendTool("knife_cut", "221,180,117\r\n227,203,156", 255, 186, 119, BrushDefs.AIR, "Knife Cut", 6, 2);
-const H = extendTool("velveta ", "255, 166, 0", 255, 166, 0, BrushDefs.WATER, "Cheese Sauce", 1, ToolDefs.DEFAULT_SIZE);
-const I = extendTool("thermite_cheese", "242, 124, 66", 242, 124, 66, BrushDefs.THERMITE, "Quick Igniting Cheese", 15, ToolDefs.DEFAULT_SIZE);
-const FF = extendTool("cheese_ignite", "255,186,119", 255, 186, 119, BrushDefs.FIRE, "Cheese Based Igniter", 15, 16);
-const TT = extendTool("eat", "255,255,255", 221, 180, 117, BrushDefs.AIR, "Eat", 15, ToolDefs.DEFAULT_SIZE);
+const BLUE_CHEESE = extendTool("blue_cheese", "217,205,181\r\n201,195,165\r\n201,181,148\r\n62,102,141\r\n154,167,180", 62, 102, 141, BrushDefs.SAND, "Blue Cheese", 4, ToolDefs.DEFAULT_SIZE);
+const RED_CHEESE = extendTool("red_cheese", "136,33,33\r\n161,39,39\r\n186,45,45\r\n207,55,55\r\n213,80,80\r\n217,181,181\r\n201,148,148\r\n201,165,165", 136, 33, 33, BrushDefs.SAND, "Red Cheese", 4, ToolDefs.DEFAULT_SIZE);
+const CHEDDAR_JACK = extendTool("cheddar_jack_cheese", "229,172,26\r\n229,156,26\r\n238,211,172\r\n253,230,191", 229, 172, 26, BrushDefs.GRAVEL, "Cheddar Jack", 7, ToolDefs.DEFAULT_SIZE);
+const CLASSIC_CHEDDAR = extendTool("test_cheddar_cheese", "249,192,46\r\n249,176,46", 249, 192, 46, BrushDefs.SOIL, "(old) Grated Cheddar Cheese", 8, ToolDefs.DEFAULT_SIZE);
+const PARMESIAN_CHEESE = extendTool("parmesian_cheese", "228,211,162\r\n233,220,181\r\n239,229,199\r\n244,237,218\r\n250,246,236", 228, 211, 162, BrushDefs.SAND, "Parmesian Cheese", 2, ToolDefs.DEFAULT_SIZE);
+const MAC_N_CHEESE = extendTool("grass_mac", "218,116,3\r\n238,136,23\r\n228,126,13", 218, 116, 3, BrushDefs.GRASS, "Mac n Cheese", 2, ToolDefs.DEFAULT_SIZE);
+const PASTA_WOOD = extendTool("tree_pasta", "221,180,117", 221, 180, 117, BrushDefs.TREE, "Pasta Tree", 9, 1);
+const SPAGETTI_TREE = extendTool("tree_spagetti", "251,219,101", 251, 219, 101, BrushDefs.TREE_LEAF_LIGHTER, "Spagetti Leaf", 9, ToolDefs.DEFAULT_SIZE);
+const CLASSIC_NOODLE = extendTool("pasta_natural", "221,180,117\r\n227,203,156", 221, 180, 117, BrushDefs.TREE_WOOD, "Hard Pasta", 6, ToolDefs.DEFAULT_SIZE);
+const SLICE = extendTool("knife_cut", "221,180,117\r\n227,203,156", 255, 186, 119, BrushDefs.AIR, "Slice", 6, 2);
+const VELVETA = extendTool("velveta", "255, 166, 0", 255, 166, 0, BrushDefs.WATER, "Liquid Cheese", 1, ToolDefs.DEFAULT_SIZE);
+const EXPLODING_CHEESE = extendTool("thermite_cheese", "242, 124, 66", 242, 124, 66, BrushDefs.THERMITE, "Quick Igniting Cheese", 15, ToolDefs.DEFAULT_SIZE);
+const CHEESE_FIRE = extendTool("cheese_ignite", "255,186,119", 255, 186, 119, BrushDefs.FIRE, "Cheese Based Igniter", 15, 16);
+const EAT = extendTool("eat", "255,255,255", 221, 180, 117, BrushDefs.AIR, "Eat", 15, ToolDefs.DEFAULT_SIZE);
 const BASIC_SHREDDED = extendTool("cheddar_cheese", "218,116,3,\r\n248,132,3,\r\n252,147,30,\r\n252,161,60,\r\n252,176,90,\r\n", 252, 147, 30, BrushDefs.SOIL, "Cheese", 4, ToolDefs.DEFAULT_SIZE);
 const LIGHT_SHREDDED = extendTool("light_cheddar_cheese", "218,142,3,\r\n248,162,3,\r\n252,174,30,\r\n252,185,60,\r\n252,196,90,\r\n", 252, 174, 30, BrushDefs.SAND, "Light Cheese", 4, ToolDefs.DEFAULT_SIZE);
 const SHARP_SHREDDED = extendTool("sharp_cheddar_cheese", "218,85,3,\r\n248,97,3,\r\n252,115,30,\r\n252,134,60,\r\n252,153,90,\r\n", 252, 115, 30, BrushDefs.SAND, "Sharp Cheese", 4, ToolDefs.DEFAULT_SIZE);
@@ -239,7 +240,7 @@ const GLOB_SHREDDED = extendTool("glob_cheddar_cheese", "218,116,3,\r\n248,132,3
 const BLUE_SHREDDED = extendTool("blue_cheddar_cheese", "48,80,115\r\n54,90,129\r\n61,101,144\r\n80,116,155\r\n99,131,166\r\n", 61, 101, 144, BrushDefs.GRAVEL, "Blue Cheese", 4, ToolDefs.DEFAULT_SIZE);
 const BLACK_SHREDDED = extendTool("black_cheddar_cheese", "31,31,31\r\n37,37,37\r\n56,56,56\r\n75,75,75\r\n100,100,100\r\n", 56, 56, 56, BrushDefs.SOIL, "Black Cheese", 4, ToolDefs.DEFAULT_SIZE);
 
-const VV = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$a, BrushDefs.WALL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
+const CHEESE_BRICK = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$a, BrushDefs.WALL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
     codeName: "cheese_brick",
     displayName: "Cheese Bricks",
     badgeStyle: {
@@ -311,29 +312,54 @@ const BLACK_TILED = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(4, B
     }
 }));
 //End TIles
-const EE = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(2, Brushes.colorTexture(img$3, BrushDefs.METAL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
+const RED_CHEESE_BLOCK = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(2, Brushes.colorTexture(img$3, BrushDefs.METAL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
     codeName: "red_cheese",
     displayName: "Pesto Waxed Cheese",
     badgeStyle: {
         backgroundColor: "#b92e2d"
     }
 }));
-const AA = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(2, Brushes.colorTexture(img$1, BrushDefs.METAL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
+const CHEESE_BLOCK = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(2, Brushes.colorTexture(img$1, BrushDefs.METAL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
     codeName: "cheddar_cheese_block",
     displayName: "Cheddar Cheese",
     badgeStyle: {
         backgroundColor: "#fc921f"
     }
 }));
-const CC = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(5, Brushes.colorTexture(img$e, BrushDefs.TREE_WOOD)), ToolDefs.DEFAULT_SIZE, ToolDefs.ROCK.getInfo().derive({
+const PASTA_NOODLE = Tools.roundBrushToolForSolidBody(Brushes.colorRandomize(5, Brushes.colorTexture(img$e, BrushDefs.TREE_WOOD)), ToolDefs.DEFAULT_SIZE, ToolDefs.ROCK.getInfo().derive({
     codeName: "pasta_noodle",
     displayName: "Pasta Noodles",
     badgeStyle: {
         backgroundColor: "#e1cf9d"
     }
 }));
+/*
+const BIRD = Tools.insertEntityTool(EntityFactories.birdFactory, new ToolInfo({
+        codeName: 'bird',
+        displayName: 'Bird',
+    badgeStyle: {
+        backgroundColor: "#e1cf9d"
+    }
+}));
+
+    const BUTTERFLY = Tools.insertEntityTool(EntityFactories.butterflyFactory, new ToolInfo({
+        codeName: 'butterfly',
+        displayName: 'Butterfly',
+    badgeStyle: {
+        backgroundColor: "#e1cf9d"
+    }
+    }));
+
+    const FISH = Tools.insertEntityTool(EntityFactories.fishFactory, new ToolInfo({
+        codeName: 'fish',
+        displayName: 'Fish',
+    badgeStyle: {
+        backgroundColor: "#e1cf9d"
+    }
+    }));*/
+
 //biggest boi in existance
-const RR = Tools.templateSelectionTool([
+const COOL_TEMPLATES = Tools.templateSelectionTool([
     {
         info: {
             displayName: "Cheese House",
@@ -782,7 +808,32 @@ const RR = Tools.templateSelectionTool([
 }));
 
 const config = {
-    tools: [TT, ToolDefs.MOVE, ToolDefs.FLIP_VERTICALLY, u, i, h, f, g, F, U, J, G, p, H, I, VV, CC, EE, AA, FF, RR, BASIC_SHREDDED, BASIC_TILED, LIGHT_SHREDDED, LIGHT_TILED, SHARP_SHREDDED, SHARP_TILED, RED_SHREDDED, RED_TILED, WHITE_SHREDDED, WHITE_TILED, BLUE_SHREDDED, BLUE_TILED, BLACK_SHREDDED, BLACK_TILED, GLOB_SHREDDED, GLOB_SOLID, GLOB_TILED, ToolDefs.METAL, ToolDefs.FIRE, ToolDefs.METEOR, ToolDefs.EFFECT_TEMP_MINUS, ToolDefs.EFFECT_TEMP_PLUS, ToolDefs.EFFECT_TEMP_PLUS2 /*c.SAND,c.ERASE_SLASH,c.FIRE_SLASH,c.HOT_SLASH,c.COLD_SLASH, c.WATER,  c.SOIL, c.GRAVEL, c.COAL,   c.ROCK_TEMPLATES, c.TEMPLATES, c.ROCK,c.TAR, c.WOOD,c.WOOD_1,c.LEAF,c.LEAF_1,c.GRASSPLACE, c.GLASS,c.METAL, c.STEEL, c.BRASS, c.GLASS_MOLTEN,c.METAL_MOLTEN,c.STEEL_MOLTEN, c.BRASS_MOLTEN,c.LAVA,*/],
+    tools: [EAT, ToolDefs.MOVE, ToolDefs.FLIP_VERTICALLY, ToolDefs.FLIP_HORIZONTALLY, 
+        Tools.selectionTool([BASIC_SHREDDED, BASIC_TILED, LIGHT_SHREDDED, LIGHT_TILED, SHARP_SHREDDED, SHARP_TILED, RED_SHREDDED, RED_TILED, WHITE_SHREDDED, WHITE_TILED, BLUE_SHREDDED, BLUE_TILED, BLACK_SHREDDED, BLACK_TILED, GLOB_SHREDDED, GLOB_SOLID, GLOB_TILED], {
+            displayName: 'Basic Cheese',
+            badgeStyle: {
+                backgroundColor: "rgb(252,147,30)",
+            }
+        }),
+        Tools.selectionTool([MAC_N_CHEESE,SPAGETTI_TREE,EXPLODING_CHEESE,CHEESE_FIRE,PASTA_WOOD,  CLASSIC_NOODLE], {
+            displayName: 'Advanced Cheese',
+            badgeStyle: {
+                backgroundColor: "rgb(252,115,30)",
+            }
+        }),
+        Tools.selectionTool([
+            BLUE_CHEESE, RED_CHEESE, CHEDDAR_JACK, CLASSIC_CHEDDAR, PARMESIAN_CHEESE,   SLICE, VELVETA,  CHEESE_BRICK, PASTA_NOODLE, RED_CHEESE_BLOCK, CHEESE_BLOCK], {
+            displayName: 'Classic Cheese',
+            badgeStyle: {
+                backgroundColor: "rgb(252,174,30)",
+            }
+        }),
+        Tools.selectionTool([ToolDefs.FIRE, ToolDefs.METEOR, ToolDefs.EFFECT_TEMP_MINUS, ToolDefs.EFFECT_TEMP_PLUS, ToolDefs.EFFECT_TEMP_PLUS2], {
+            displayName: 'Effects',
+            badgeStyle: {
+                backgroundColor: '#ff5500',
+            }
+        }), ,COOL_TEMPLATES],disableBigButtons: false,
     brushes: {
         wall: Brushes.colorRandomize(5, Brushes.colorTexture(img$a, BrushDefs.WALL)),
         tree_wood: Brushes.colorRandomize(5, Brushes.colorTexture(img$e, BrushDefs.TREE_WOOD)),
@@ -823,16 +874,16 @@ const config = {
           }
         ], true, BrushDefs.WALL);
 
-        sandGame.graphics().fill(Brushes.conditional(PredicateDefs.IS_STATIC, f.getBrush()));
+        sandGame.graphics().fill(Brushes.conditional(PredicateDefs.IS_STATIC, BASIC_SHREDDED.getBrush()));
 
         const o = SandSagaUtils.mapPositionFracWH(sandGame, 100, 100);
-        sandGame.graphics().drawRectangle(o.x(30), o.y(40), o.x(70), o.y(50), g.getBrush());
-        sandGame.graphics().drawRectangle(o.x(10), o.y(60), o.x(40), o.y(70), H.getBrush());
-        sandGame.graphics().drawRectangle(o.x(1), o.y(50), o.x(40), o.y(60), g.getBrush());
-        sandGame.graphics().drawRectangle(o.x(70), o.y(50), o.x(100), o.y(60), h.getBrush());
-        sandGame.graphics().drawRectangle(o.x(70), o.y(50), o.x(100), o.y(52), F.getBrush());
-        sandGame.graphics().drawRectangle(o.x(68), o.y(20), o.x(69), o.y(21), U.getBrush());
-        sandGame.graphics().drawRectangle(o.x(0), o.y(90), o.x(100), o.y(100), G.getBrush());
+        sandGame.graphics().drawRectangle(o.x(30), o.y(40), o.x(70), o.y(50), LIGHT_SHREDDED.getBrush());
+        sandGame.graphics().drawRectangle(o.x(10), o.y(60), o.x(40), o.y(70), PARMESIAN_CHEESE.getBrush());
+        sandGame.graphics().drawRectangle(o.x(1), o.y(50), o.x(40), o.y(60), LIGHT_SHREDDED.getBrush());
+        sandGame.graphics().drawRectangle(o.x(70), o.y(50), o.x(100), o.y(60), CLASSIC_CHEDDAR.getBrush());
+        sandGame.graphics().drawRectangle(o.x(70), o.y(50), o.x(100), o.y(52), MAC_N_CHEESE.getBrush());
+        sandGame.graphics().drawRectangle(o.x(68), o.y(20), o.x(69), o.y(21), WHITE_SHREDDED.getBrush());
+        sandGame.graphics().drawRectangle(o.x(0), o.y(90), o.x(100), o.y(100), VELVETA.getBrush());
       }),
       SceneDefs.SCENE_EMPTY,
       SceneDefs.SCENE_LANDSCAPE_1,
