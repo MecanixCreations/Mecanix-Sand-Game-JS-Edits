@@ -243,12 +243,50 @@
           meltingTemperature: 200,
           meltingHMI: 8
       });
+      static HMI_STEEL = r.#i({
+          i: 13,
+          conductiveIndex: .45,
+          heatLossChanceTo10000: 10,
+          meltingTemperature: 250,
+          meltingHMI: 8
+      });
+      static HMI_BRASS = r.#i({
+          i: 14,
+          conductiveIndex: .45,
+          heatLossChanceTo10000: 10,
+          meltingTemperature: 160,
+          meltingHMI: 8
+      });
       static HMI_MOLTEN = r.#i({
           i: 8,
           conductiveIndex: .45,
           heatLossChanceTo10000: 10,
           hardeningTemperature: 150,
           hardeningHMI: 7
+      });
+      static HMI_GLASS = r.#i({
+          i: 12,
+          conductiveIndex: .45,
+          heatLossChanceTo10000: 10,
+          meltingTemperature: 180,
+          meltingHMI: 8
+      });
+      static HMI_LAVA = r.#i({
+          i: 11,
+          conductiveIndex: .45,
+          heatLossChanceTo10000: 1,
+          meltingTemperature: 1,
+          meltingHMI: 12
+      });
+      static HMI_LAVA_MOLTEN = r.#i({
+          i: 12,
+          conductiveIndex: .50,
+          heatLossChanceTo10000: 10,
+          flammableChanceTo10000: 8e3,
+          selfIgnitionChanceTo10000: 250,
+          flameHeat: 200,
+          hardeningTemperature: 0,
+          hardeningHMI: 144
       });
       static HMI_COAL = r.#i({
           i: 9,
@@ -3318,7 +3356,151 @@
           threshold: .1,
           force: .1
       }], 33, 29, 28)]);
-      static METAL = M.join([M.random([new n(r.of(r.type8(r.type8Solid(r.TYPE_STATIC, 2)), r.behaviour8(), r.modifiers8(r.HMI_METAL)), h.of(155, 155, 155, h.BLUR_TYPE_NONE, h.HEAT_EFFECT_3))]), M.colorNoise([{
+      static GLASS = M.join([M.random([new n(r.of(r.type8(r.type8Solid(r.TYPE_STATIC, 2)), r.behaviour8(), r.modifiers8(r.HMI_METAL)), h.of(192,203,205, h.BLUR_TYPE_NONE, h.HEAT_EFFECT_2))]), M.colorNoise([{
+          seed: 40,
+          factor: 40,
+          threshold: .4,
+          force: .75
+      }, {
+          seed: 40,
+          factor: 20,
+          threshold: .5,
+          force: .4
+      }, {
+          seed: 40,
+          factor: 10,
+          threshold: .4,
+          force: .2
+      }, {
+          seed: 40,
+          factor: 5,
+          threshold: .4,
+          force: .1
+      }], 216,228,233), M.colorNoise([{
+          seed: 41,
+          factor: 10,
+          threshold: .4,
+          force: .4
+      }, {
+          seed: 41,
+          factor: 6,
+          threshold: .3,
+          force: .3
+      }, {
+          seed: 41,
+          factor: 4,
+          threshold: .5,
+          force: .3
+      }],  167,199,203)]);
+      static METAL = M.join([M.random([new n(r.of(r.type8(r.type8Solid(r.TYPE_STATIC, 2)), r.behaviour8(), r.modifiers8(r.HMI_METAL)), h.of(155, 155, 155, h.BLUR_TYPE_NONE, h.HEAT_EFFECT_2))]), M.colorNoise([{
+          seed: 40,
+          factor: 40,
+          threshold: .4,
+          force: .75
+      }, {
+          seed: 40,
+          factor: 20,
+          threshold: .5,
+          force: .4
+      }, {
+          seed: 40,
+          factor: 10,
+          threshold: .4,
+          force: .2
+      }, {
+          seed: 40,
+          factor: 5,
+          threshold: .4,
+          force: .1
+      }], 135, 135, 135), M.colorNoise([{
+          seed: 41,
+          factor: 10,
+          threshold: .4,
+          force: .4
+      }, {
+          seed: 41,
+          factor: 6,
+          threshold: .3,
+          force: .3
+      }, {
+          seed: 41,
+          factor: 4,
+          threshold: .5,
+          force: .3
+      }], 130, 130, 130)]);
+      static STEEL = M.join([M.random([new n(r.of(r.type8(r.type8Solid(r.TYPE_STATIC, 2)), r.behaviour8(), r.modifiers8(r.HMI_STEEL)), h.of(54, 56, 60, h.BLUR_TYPE_NONE, h.HEAT_EFFECT_2))]), M.colorNoise([{
+          seed: 40,
+          factor: 40,
+          threshold: .4,
+          force: .75
+      }, {
+          seed: 40,
+          factor: 20,
+          threshold: .5,
+          force: .4
+      }, {
+          seed: 40,
+          factor: 10,
+          threshold: .4,
+          force: .2
+      }, {
+          seed: 40,
+          factor: 5,
+          threshold: .4,
+          force: .1
+      }],47, 49, 53), M.colorNoise([{
+          seed: 41,
+          factor: 10,
+          threshold: .4,
+          force: .4
+      }, {
+          seed: 41,
+          factor: 6,
+          threshold: .3,
+          force: .3
+      }, {
+          seed: 41,
+          factor: 4,
+          threshold: .5,
+          force: .3
+      }], 67, 70, 75)]);
+      static BRASS = M.join([M.random([new n(r.of(r.type8(r.type8Solid(r.TYPE_STATIC, 2)), r.behaviour8(), r.modifiers8(r.HMI_BRASS)), h.of(215, 170, 94, h.BLUR_TYPE_NONE, h.HEAT_EFFECT_2))]), M.colorNoise([{
+          seed: 40,
+          factor: 40,
+          threshold: .4,
+          force: .75
+      }, {
+          seed: 40,
+          factor: 20,
+          threshold: .5,
+          force: .4
+      }, {
+          seed: 40,
+          factor: 10,
+          threshold: .4,
+          force: .2
+      }, {
+          seed: 40,
+          factor: 5,
+          threshold: .4,
+          force: .1
+      }],89, 36, 36), M.colorNoise([{
+          seed: 41,
+          factor: 10,
+          threshold: .4,
+          force: .4
+      }, {
+          seed: 41,
+          factor: 6,
+          threshold: .3,
+          force: .3
+      }, {
+          seed: 41,
+          factor: 4,
+          threshold: .5,
+          force: .3
+      }], 255, 235, 140)]);
+      static LAVA = M.join([M.random([new n(r.of(r.type8(r.type8Solid(r.TYPE_STATIC, 2)), r.behaviour8(), r.modifiers8(r.HMI_LAVA)), h.of(155, 155, 155, h.BLUR_TYPE_NONE, h.HEAT_EFFECT_3))]), M.colorNoise([{
           seed: 40,
           factor: 40,
           threshold: .4,
@@ -3355,6 +3537,10 @@
           force: .3
       }], 130, 130, 130)]);
       static METAL_MOLTEN = M.join([W.METAL, M.temperature(180), M.molten()]);
+      static STEEL_MOLTEN = M.join([W.STEEL, M.temperature(240), M.molten()]);
+      static BRASS_MOLTEN = M.join([W.BRASS, M.temperature(150), M.molten()]);
+      static GLASS_MOLTEN = M.join([W.GLASS, M.temperature(200), M.molten()]);
+      static LAVA_MOLTEN = M.join([W.LAVA, M.temperature(255), M.molten()]);
       static SAND = M.colorPaletteRandom("214,212,154\n214,212,154\n214,212,154\n214,212,154\n225,217,171\n225,217,171\n225,217,171\n225,217,171\n203,201,142\n203,201,142\n203,201,142\n203,201,142\n195,194,134\n195,194,134\n218,211,165\n218,211,165\n223,232,201\n186,183,128", M.custom(((e, t, s) => {
           const i = s.nextInt(100) < 60 ? r.TYPE_POWDER : r.TYPE_POWDER_WET,
               a = r.of(r.type8Powder(i, 6), r.behaviour8(), r.modifiers8(r.HMI_CONDUCTIVE_2)),
@@ -3469,6 +3655,14 @@
           rock: W.ROCK,
           metal: W.METAL,
           metal_molten: W.METAL,
+          steel: W.STEEL,
+          steel_molten: W.STEEL,
+          brass: W.BRASS,
+          brass_molten: W.BRASS,
+          glass: W.GLASS,
+          glass_molten: W.GLASS,
+          lava: W.LAVA,
+          lava_molten: W.LAVA,
           wood: W.TREE_WOOD,
           water: W.WATER,
           steam: W.STEAM,
@@ -4276,7 +4470,7 @@
       }));
       static TAR = Z.roundBrushTool(W.TAR, $.DEFAULT_SIZE, new N({
           codeName: "tar",
-          displayName: "TAR",
+          displayName: "Asphalt",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
               backgroundColor: "#241b0d"
@@ -4343,7 +4537,7 @@
           displayName: "Dark Wood",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
-              backgroundColor: "#573005"
+              backgroundColor: "#5e462a"
           }
       }));
       static LEAF = Z.roundBrushToolForSolidBody(W.TREE_LEAF_LIGHTER, $.DEFAULT_SIZE, new N({
@@ -4351,7 +4545,7 @@
           displayName: "Leaves",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
-              backgroundColor: "#573005"
+              backgroundColor: "#8d955b"
           }
       }));
       static METAL = Z.roundBrushToolForSolidBody(W.METAL, $.DEFAULT_SIZE, new N({
@@ -4362,33 +4556,89 @@
               backgroundColor: "#7c7c7c"
           }
       }));
+      static STEEL = Z.roundBrushToolForSolidBody(W.STEEL, $.DEFAULT_SIZE, new N({
+          codeName: "steel",
+          displayName: "Steel",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#282a2d"
+          }
+      }));
+      static BRASS = Z.roundBrushToolForSolidBody(W.BRASS, $.DEFAULT_SIZE, new N({
+          codeName: "brass",
+          displayName: "Brass",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#CEA05A"
+          }
+      }));
+      static GLASS = Z.roundBrushToolForSolidBody(W.GLASS, $.DEFAULT_SIZE, new N({
+          codeName: "glass",
+          displayName: "Glass",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#a7c7cb"
+          }
+      }));
+      static LAVA = Z.roundBrushToolForSolidBody(W.LAVA, $.DEFAULT_SIZE, new N({
+          codeName: "lava",
+          displayName: "Lava (solder)",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#4f453f"
+          }
+      }));
       static LEAF_1 = Z.roundBrushToolForSolidBody(W.TREE_LEAF_DARKER, $.DEFAULT_SIZE, new N({
           codeName: "leaf_dark",
           displayName: "Dark Leaves",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
-              backgroundColor: "#573005"
+              backgroundColor: "#444d28"
           }
       }));
-      static ASH = Z.roundBrushToolForSolidBody(W.ASH, $.DEFAULT_SIZE, new N({
+      static ASH = Z.roundBrushTool(W.ASH, $.DEFAULT_SIZE, new N({
           codeName: "ash",
           displayName: "Ash",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
-              backgroundColor: "#573005"
+              backgroundColor: "#9b9b9b"
           }
       }));
-      static GRASS = Z.roundBrushToolForSolidBody(W.ASH, $.DEFAULT_SIZE, new N({
+      static GRASSPLACE = Z.roundBrushTool(W.GRASS, $.DEFAULT_SIZE, new N({
           codeName: "grass",
           displayName: "Grass",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
-              backgroundColor: "#573005"
+              backgroundColor: "#387e26"
           }
       }));
       static METAL_MOLTEN = Z.roundBrushTool(W.METAL_MOLTEN, $.DEFAULT_SIZE, new N({
           codeName: "metal_molten",
           displayName: "M. Metal",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#e67d00"
+          }
+      }));
+      static STEEL_MOLTEN = Z.roundBrushTool(W.STEEL_MOLTEN, $.DEFAULT_SIZE, new N({
+          codeName: "steel_molten",
+          displayName: "M. Steel",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#e67d00"
+          }
+      }));
+      static BRASS_MOLTEN = Z.roundBrushTool(W.BRASS_MOLTEN, $.DEFAULT_SIZE, new N({
+          codeName: "brass_molten",
+          displayName: "M. Brass",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#e67d00"
+          }
+      }));
+      static GLASS_MOLTEN = Z.roundBrushTool(W.GLASS_MOLTEN, $.DEFAULT_SIZE, new N({
+          codeName: "glass_molten",
+          displayName: "M. Glass",
           category: $.CATEGORY_BRUSH,
           badgeStyle: {
               backgroundColor: "#e67d00"
@@ -4418,7 +4668,23 @@
               backgroundColor: "#ff5900"
           }
       }));
-      static DEFAULT_TOOLS = [this.ERASE, this.MOVE,this.FLIP_VERTICALLY,this.ERASE_SLASH,this.FIRE_SLASH, this.SAND, this.SOIL, this.GRAVEL, this.TAR, this.COAL, this.THERMITE, this.WATER, this.ROCK_TEMPLATES, this.TEMPLATES, this.ROCK, this.WOOD,this.WOOD_1,this.LEAF,this.LEAF_1, this.WALL, this.METAL, this.METAL_MOLTEN, this.FIRE, this.METEOR];
+      static TREETOOL = Z.pointBrushTool(W.TREE, new N({
+          codeName: "tree",
+          displayName: "Tree",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#ff5900"
+          }
+      }));
+      static FISHTOOL = Z.point2BrushTool(W.FISH_HEAD, W.FISH_BODY, new N({
+          codeName: "fish",
+          displayName: "Fish",
+          category: $.CATEGORY_BRUSH,
+          badgeStyle: {
+              backgroundColor: "#ff5900"
+          }
+      }));
+      static DEFAULT_TOOLS = [this.ERASE, this.MOVE,this.FLIP_VERTICALLY,this.ERASE_SLASH,this.FIRE_SLASH, this.SAND, this.SOIL, this.GRAVEL, this.TAR, this.COAL, this.THERMITE, this.WATER, this.ROCK_TEMPLATES, this.TEMPLATES, this.ROCK, this.WOOD,this.WOOD_1,this.LEAF,this.LEAF_1, this.WALL, this.METAL, this.METAL_MOLTEN,this.GLASS, this.GLASS_MOLTEN, this.FIRE, this.METEOR];
       static TEST_TOOLS = [Z.pointBrushTool(W.GRASS, new N({
           codeName: "grass",
           displayName: "Grass",
@@ -8194,7 +8460,7 @@
           }, "Material"), te.div({
               class: "col-sm-9",
               style: "column-count: 2;"
-          }, [this.#Dr(W.SAND, $.SAND.getInfo()), this.#Dr(W.SOIL, $.SOIL.getInfo()), this.#Dr(W.THERMITE, $.THERMITE.getInfo()), this.#Dr(W.WALL, $.WALL.getInfo()), this.#Dr(W.METAL, $.METAL.getInfo()), this.#Dr(W.TREE_WOOD, $.WOOD.getInfo())])]), te.element("fieldset", {
+          }, [this.#Dr(W.SAND, $.SAND.getInfo()), this.#Dr(W.SOIL, $.SOIL.getInfo()), this.#Dr(W.THERMITE, $.THERMITE.getInfo()), this.#Dr(W.WALL, $.WALL.getInfo()), this.#Dr(W.METAL, $.METAL.getInfo()),this.#Dr(W.GLASS, $.GLASS.getInfo()), this.#Dr(W.TREE_WOOD, $.WOOD.getInfo())])]), te.element("fieldset", {
               class: "mb-3 row"
           }, [te.element("legend", {
               class: "col-form-label col-sm-3 float-sm-left pt-0"
@@ -9475,6 +9741,18 @@
   class Nn extends un {
       static CLASS_SELECTED = "selected-size";
       static SIZES = [{
+          scale: 1.0,
+          image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHUlEQVR4Xu3WQW6EMBBEUSJx3jkMF55s4ogQG2zTxeDi/10ijdxTb5HME1k3b39BXgFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsCrlmV5r39+vV5f659HDOCftrjpd6MjAzzlcVOjIz8eeA83NTLyo4FrcFOjIj8WuAU3NSLyI4F7cFOjIT8O+AxuaiTkRwFH4KZGQX4McCRuagTkjwGvB1ePpMBN3R35I8DbwZUjbd9SpLz/bJcDlwZXjFR6S5Hi/oguBT4aPHKko7cURd4f1WXAtYNHjFT7lqKI+yO7BLh18DMjtb6l6Mz90cmBewfvGan3LUU99yuSAp8dvGWks28parlflQw4avCakaLeUlRzvzIJcPTgeyNFv6Vo73514cCqwXMjqd5SlLu/1Pp71X6mVCiwevD1SOq3FNUgb79XzWf2CgPeHqbqqndU7YGVvtveZ44KAS4dRvlyYEcb5j5T02ngo8MoX8+fmx7kU8C1h1G+nv1akbuBe46jmFqQu4DB/Xy1yM3A4N6nGuQmYHDv1xFyNTC4920PuQoY3PtXQj4EBneccsi7wOCO1xa5CAzuuK2Rs8Dgjl9C/gcMrk/Lsrz/AIPr1y8wuJ7N0wSuczO43v37J4u8Atg8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYvG9K/XJS29iPWwAAAABJRU5ErkJggg==",
+          description: "1-1 screen ratio"
+      },{
+          scale: .9,
+          image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHUlEQVR4Xu3WQW6EMBBEUSJx3jkMF55s4ogQG2zTxeDi/10ijdxTb5HME1k3b39BXgFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsCrlmV5r39+vV5f659HDOCftrjpd6MjAzzlcVOjIz8eeA83NTLyo4FrcFOjIj8WuAU3NSLyI4F7cFOjIT8O+AxuaiTkRwFH4KZGQX4McCRuagTkjwGvB1ePpMBN3R35I8DbwZUjbd9SpLz/bJcDlwZXjFR6S5Hi/oguBT4aPHKko7cURd4f1WXAtYNHjFT7lqKI+yO7BLh18DMjtb6l6Mz90cmBewfvGan3LUU99yuSAp8dvGWks28parlflQw4avCakaLeUlRzvzIJcPTgeyNFv6Vo73514cCqwXMjqd5SlLu/1Pp71X6mVCiwevD1SOq3FNUgb79XzWf2CgPeHqbqqndU7YGVvtveZ44KAS4dRvlyYEcb5j5T02ngo8MoX8+fmx7kU8C1h1G+nv1akbuBe46jmFqQu4DB/Xy1yM3A4N6nGuQmYHDv1xFyNTC4920PuQoY3PtXQj4EBneccsi7wOCO1xa5CAzuuK2Rs8Dgjl9C/gcMrk/Lsrz/AIPr1y8wuJ7N0wSuczO43v37J4u8Atg8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYvG9K/XJS29iPWwAAAABJRU5ErkJggg==",
+          description: "Very very very small elements"
+      },{
+          scale: .80,
+          image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHUlEQVR4Xu3WQW6EMBBEUSJx3jkMF55s4ogQG2zTxeDi/10ijdxTb5HME1k3b39BXgFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsCrlmV5r39+vV5f659HDOCftrjpd6MjAzzlcVOjIz8eeA83NTLyo4FrcFOjIj8WuAU3NSLyI4F7cFOjIT8O+AxuaiTkRwFH4KZGQX4McCRuagTkjwGvB1ePpMBN3R35I8DbwZUjbd9SpLz/bJcDlwZXjFR6S5Hi/oguBT4aPHKko7cURd4f1WXAtYNHjFT7lqKI+yO7BLh18DMjtb6l6Mz90cmBewfvGan3LUU99yuSAp8dvGWks28parlflQw4avCakaLeUlRzvzIJcPTgeyNFv6Vo73514cCqwXMjqd5SlLu/1Pp71X6mVCiwevD1SOq3FNUgb79XzWf2CgPeHqbqqndU7YGVvtveZ44KAS4dRvlyYEcb5j5T02ngo8MoX8+fmx7kU8C1h1G+nv1akbuBe46jmFqQu4DB/Xy1yM3A4N6nGuQmYHDv1xFyNTC4920PuQoY3PtXQj4EBneccsi7wOCO1xa5CAzuuK2Rs8Dgjl9C/gcMrk/Lsrz/AIPr1y8wuJ7N0wSuczO43v37J4u8Atg8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYvG9K/XJS29iPWwAAAABJRU5ErkJggg==",
+          description: "Very Very small elements"
+      },{
           scale: .75,
           image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHUlEQVR4Xu3WQW6EMBBEUSJx3jkMF55s4ogQG2zTxeDi/10ijdxTb5HME1k3b39BXgFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsDmAWwewOYBbB7A5gFsHsCrlmV5r39+vV5f659HDOCftrjpd6MjAzzlcVOjIz8eeA83NTLyo4FrcFOjIj8WuAU3NSLyI4F7cFOjIT8O+AxuaiTkRwFH4KZGQX4McCRuagTkjwGvB1ePpMBN3R35I8DbwZUjbd9SpLz/bJcDlwZXjFR6S5Hi/oguBT4aPHKko7cURd4f1WXAtYNHjFT7lqKI+yO7BLh18DMjtb6l6Mz90cmBewfvGan3LUU99yuSAp8dvGWks28parlflQw4avCakaLeUlRzvzIJcPTgeyNFv6Vo73514cCqwXMjqd5SlLu/1Pp71X6mVCiwevD1SOq3FNUgb79XzWf2CgPeHqbqqndU7YGVvtveZ44KAS4dRvlyYEcb5j5T02ngo8MoX8+fmx7kU8C1h1G+nv1akbuBe46jmFqQu4DB/Xy1yM3A4N6nGuQmYHDv1xFyNTC4920PuQoY3PtXQj4EBneccsi7wOCO1xa5CAzuuK2Rs8Dgjl9C/gcMrk/Lsrz/AIPr1y8wuJ7N0wSuczO43v37J4u8Atg8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYPIDNA9g8gM0D2DyAzQPYvG9K/XJS29iPWwAAAABJRU5ErkJggg==",
           description: "Very small elements"
@@ -9490,6 +9768,18 @@
           scale: .25,
           image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA+ElEQVR4Xu3ZsQ3DMAwAwRjwvBpGCye9KgMq7LzvSnbiQxXPD2nnOqBF4DiB4wSOEzhO4DiB4wSOEzhO4DiB4wSOEzhO4LjXBZ5zftfZVWOMY5093esCv43AcQLHCRwncJzAcQLHCRwncJzAcQLHCRwncJzAcVuBd05v/2jnvXedGrcC83wCxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECx507JzCuu2vPfnCcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHE/D68RYAgtpF0AAAAASUVORK5CYII=",
           description: "Big elements"
+      }, {
+          scale: .10,
+          image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA+ElEQVR4Xu3ZsQ3DMAwAwRjwvBpGCye9KgMq7LzvSnbiQxXPD2nnOqBF4DiB4wSOEzhO4DiB4wSOEzhO4DiB4wSOEzhO4LjXBZ5zftfZVWOMY5093esCv43AcQLHCRwncJzAcQLHCRwncJzAcQLHCRwncJzAcVuBd05v/2jnvXedGrcC83wCxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECx507JzCuu2vPfnCcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHE/D68RYAgtpF0AAAAASUVORK5CYII=",
+          description: "X-Big elements"
+      }, {
+          scale: .05,
+          image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA+ElEQVR4Xu3ZsQ3DMAwAwRjwvBpGCye9KgMq7LzvSnbiQxXPD2nnOqBF4DiB4wSOEzhO4DiB4wSOEzhO4DiB4wSOEzhO4LjXBZ5zftfZVWOMY5093esCv43AcQLHCRwncJzAcQLHCRwncJzAcQLHCRwncJzAcVuBd05v/2jnvXedGrcC83wCxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECx507JzCuu2vPfnCcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHE/D68RYAgtpF0AAAAASUVORK5CYII=",
+          description: "XX-Big elements"
+      }, {
+          scale: .01,
+          image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA+ElEQVR4Xu3ZsQ3DMAwAwRjwvBpGCye9KgMq7LzvSnbiQxXPD2nnOqBF4DiB4wSOEzhO4DiB4wSOEzhO4DiB4wSOEzhO4LjXBZ5zftfZVWOMY5093esCv43AcQLHCRwncJzAcQLHCRwncJzAcQLHCRwncJzAcVuBd05v/2jnvXedGrcC83wCxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECx507JzCuu2vPfnCcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHECxwkcJ3CcwHE/D68RYAgtpF0AAAAASUVORK5CYII=",
+          description: "XXXXX-Big elements"
       }];
       #Js = [];
       #js = null;
@@ -9602,7 +9892,7 @@
       static ALL_MATERIALS = function(e) {
           let t = e.getSandGame();
           if (null === t) return;
-          const n = ["ash", "sand", "soil", "gravel","tar", "wall", "rock", "metal", "wood", "water"];
+          const n = ["ash", "sand", "soil", "gravel","tar", "wall", "rock", "metal","steel","glass","brass", "wood", "water"];
           let r = Math.ceil(t.getWidth() / n.length);
           for (let e = 0; e < n.length; e++) {
               const s = W.byCodeName(n[e]);
@@ -10348,8 +10638,9 @@
             E = o("sand_4", "125,63,23\r\n120,57,16\r\n127,64,22\r\n143,78,31\r\n165,97,45\r\n163,93,39\r\n133,64,13\r\n133,65,14\r\n146,79,26\r\n139,73,22\r\n137,73,21\r\n128,65,15\r\n138,76,25\r\n137,77,26\r\n134,75,26\r\n159,100,52\r\n150,92,46\r\n127,70,26\r\n143,87,42\r\n142,87,44\r\n137,82,41\r\n136,81,38\r\n100,43,6\r\n116,56,14\r\n158,96,50\r\n153,90,43\r\n139,74,27\r\n155,88,39\r\n145,95,54\r\n144,96,58\r\n139,95,59\r\n144,102,69", 125, 63, 23),
             p = o("sand_5", "157,114,79\r\n154,111,76\r\n148,105,70\r\n151,108,73\r\n138,95,60\r\n128,85,50\r\n143,100,65\r\n146,103,68\r\n135,92,57\r\n125,81,46\r\n128,84,49\r\n135,92,57\r\n130,87,52\r\n119,75,40\r\n113,69,34\r\n125,80,45\r\n133,87,52\r\n132,86,51\r\n122,75,40\r\n114,67,33\r\n114,67,33\r\n106,60,25\r\n94,48,14\r\n152,109,74\r\n147,104,69\r\n143,100,65\r\n143,100,65\r\n136,93,58\r\n136,93,58\r\n147,104,69\r\n147,104,69\r\n146,103,68\r\n142,99,64\r\n145,102,67\r\n144,101,66\r\n122,78,44\r\n109,65,31\r\n121,77,42\r\n126,79,44\r\n137,90,54\r\n136,89,53\r\n122,74,39\r\n114,66,31\r\n116,68,33\r\n111,63,28\r\n99,51,17\r\n138,94,59\r\n140,96,61\r\n145,101,66\r\n140,96,61\r\n138,94,59\r\n143,99,64\r\n143,99,64\r\n137,93,58\r\n150,106,71\r\n147,103,68\r\n142,98,63\r\n142,98,63\r\n125,81,46\r\n114,70,36\r\n129,83,49\r\n131,83,47\r\n134,85,49\r\n134,85,49\r\n130,81,45\r\n125,76,40\r\n123,74,38\r\n123,74,38\r\n124,75,39\r\n128,82,48\r\n140,94,60\r\n155,109,75\r\n147,101,67\r\n146,100,66\r\n149,103,69\r\n138,92,58\r\n127,81,47\r\n145,99,65\r\n135,89,55\r\n124,78,44\r\n137,91,57\r\n138,92,58\r\n126,80,46\r\n130,83,48\r\n140,91,55\r\n131,80,44\r\n129,78,42\r\n135,84,48\r\n129,78,42\r\n116,65,30\r\n118,67,31\r\n131,80,44", 157, 114, 79),
             P = o("sand_6", "144,122,95\r\n157,135,108\r\n153,131,104\r\n135,113,88\r\n171,150,129\r\n142,121,102\r\n138,117,98\r\n148,127,108\r\n148,127,108\r\n155,133,115\r\n154,132,114\r\n132,111,92\r\n126,105,86\r\n157,135,117\r\n126,105,86\r\n152,130,112\r\n150,128,110\r\n122,101,82\r\n162,140,122\r\n143,123,103\r\n133,115,92\r\n122,106,81\r\n126,111,87\r\n154,140,117\r\n126,113,92\r\n160,147,127\r\n125,112,93\r\n129,116,97\r\n167,154,135\r\n145,129,111\r\n146,129,110\r\n145,125,106\r\n143,122,101\r\n135,112,91\r\n118,94,72\r\n127,104,83\r\n136,118,97\r\n163,147,126\r\n140,123,102\r\n146,128,106\r\n157,138,115\r\n152,131,108\r\n177,155,130\r\n179,156,130\r\n167,142,116\r\n158,132,105\r\n166,137,110\r\n136,118,93\r\n142,124,99\r\n166,148,123\r\n183,165,141\r\n156,136,116\r\n139,118,99\r\n147,126,107\r\n165,144,125\r\n151,130,111\r\n125,104,85\r\n125,104,85\r\n139,118,99\r\n132,111,92\r\n114,93,74\r\n150,129,110\r\n158,137,118\r\n138,117,98\r\n144,123,104\r\n156,135,116\r\n172,152,131\r\n144,126,102\r\n138,122,96\r\n137,122,97\r\n163,148,124\r\n122,108,86\r\n131,117,96\r\n131,117,97\r\n133,117,98\r\n164,148,129\r\n142,123,105\r\n153,132,113\r\n165,142,123\r\n168,143,122\r\n159,132,111\r\n147,119,97\r\n165,138,118\r\n181,159,142\r\n150,131,115\r\n155,136,120\r\n136,116,99\r\n136,116,98\r\n157,135,117\r\n144,121,101\r\n157,133,112\r\n165,140,118\r\n167,140,117\r\n168,140,116\r\n132,118,95\r\n130,116,93\r\n130,116,93\r\n135,119,96\r\n115,94,73\r\n125,102,82\r\n142,119,99\r\n162,139,119\r\n165,142,122\r\n151,128,108\r\n159,136,116\r\n190,167,147\r\n148,125,105\r\n124,101,81\r\n178,155,135\r\n189,166,146\r\n173,150,130\r\n172,149,129\r\n158,135,115\r\n193,172,150\r\n159,140,113\r\n152,135,106\r\n139,123,95\r\n170,154,127\r\n144,128,103\r\n138,121,98\r\n178,161,139\r\n171,153,132\r\n151,131,111\r\n142,119,99\r\n157,131,111\r\n159,131,110\r\n152,122,100\r\n146,114,91\r\n139,105,82\r\n157,126,106\r\n194,169,155\r\n149,126,115\r\n169,146,135\r\n160,136,124\r\n140,116,103\r\n151,127,112\r\n142,117,101\r\n145,119,102\r\n146,119,101\r\n146,117,98\r\n144,114,93", 144, 122, 95),
-            q = o("sand_7", "255,22,0\r\n255,108,0\r\n255,151,0\r\n255,182,0\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", 255,0,0),
-            Q = o("sand_8", "255,27,0\r\n255,68,0\r\n255,109,0\r\n255,130,0\r\n255,151,0\r\n255,166,0\r\n255,181,0\r\n255,196,0\r\n255,211,0\r\n241,225,0\r\n225,238,0\r\n205,246,0\r\n184,253,0\r\n158,255,0\r\n132,255,1\r\n95,255,27\r\n53,255,65\r\n26,255,98\r\n8,255,127\r\n0,255,153\r\n0,254,176\r\n0,251,200\r\n0,245,224\r\n0,228,241\r\n0,198,250\r\n0,165,255\r\n0,125,255\r\n0,87,255\r\n0,53,255\r\n11,25,255\r\n58,14,255\r\n105,5,255\r\n151,2,255\r\n194,0,255\r\n209,0,255\r\n223,0,254\r\n234,0,229\r\n244,0,205\r\n249,0,178\r\n255,0,152", 255,255,0),
+            q = o("sand_7", "255,22,0\r\n255,108,0\r\n255,151,0\r\n255,182,0\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", 0,0,0),
+            Q = o("sand_8", "255,27,0\r\n255,68,0\r\n255,109,0\r\n255,130,0\r\n255,151,0\r\n255,166,0\r\n255,181,0\r\n255,196,0\r\n255,211,0\r\n241,225,0\r\n225,238,0\r\n205,246,0\r\n184,253,0\r\n158,255,0\r\n132,255,1\r\n95,255,27\r\n53,255,65\r\n26,255,98\r\n8,255,127\r\n0,255,153\r\n0,254,176\r\n0,251,200\r\n0,245,224\r\n0,228,241\r\n0,198,250\r\n0,165,255\r\n0,125,255\r\n0,87,255\r\n0,53,255\r\n11,25,255\r\n58,14,255\r\n105,5,255\r\n151,2,255\r\n194,0,255\r\n209,0,255\r\n223,0,254\r\n234,0,229\r\n244,0,205\r\n249,0,178\r\n255,0,152", 0,0,0),
+            D = o("sand_9", "120,133,139\r\n071,075,078\r\n245,208,051\r\n037,109,123\r\n194,176,120\r\n042,046,075\r\n234,230,202\r\n231,235,218\r\n033,033,033\r\n114,020,034\r\n244,070,017\r\n031,058,061\r\n041,049,051\r\n234,137,154\r\n104,108,094\r\n144,144,144\r\n127,118,121\r\n174,160,075\r\n141,148,141\r\n201,060,032\r\n198,166,100\r\n231,235,218\r\n035,040,043\r\n106,093,077\r\n144,070,132\r\n106,095,049\r\n109,101,082\r\n198,166,100\r\n064,058,058\r\n205,164,052\r\n155,017,030\r\n032,096,061\r\n29,030,051\r\n062,095,138\r\n074,025,044\r\n100,107,099\r\n121,085,061\r\n165,165,165\r\n114,020,034\r\n201,060,032\r\n155,017,030\r\n045,087,044\r\n237,255,033\r\n255,255,000\r\n243,159,024\r\n052,062,064\r\n038,037,045\r\n000,187,045\r\n022,053,055\r\n237,118,014\r\n229,190,001\r\n108,113,086\r\n220,156,000", 0,0,0),
 
             S = s.colorRandomize(3, s.color(156, 184, 212, d.WATER)),
             V = s.colorRandomize(10, s.color(156, 184, 0, d.WATER)),
@@ -10367,13 +10658,13 @@
                 }
             })),
             Y = l.roundBrushTool(v, c.DEFAULT_SIZE, c.WATER.getInfo().derive({
-                codeName: "water_2",
+                codeName: "water_3",
                 badgeStyle: {
                     backgroundColor: "rgb(253, 218, 13)"
                 }
             })),
             j = {
-                tools: [c.ERASE, c.MOVE, c.FLIP_VERTICALLY, c.ENABLE_FALLTHROUGH, u, h, E, p, P, H,q,Q, J,Y, c.WALL, c.SAND,c.ERASE_SLASH,c.FIRE_SLASH,c.HOT_SLASH,c.COLD_SLASH, c.WATER,  c.SOIL, c.GRAVEL, c.COAL, c.THERMITE,  c.ROCK_TEMPLATES, c.TEMPLATES, c.ROCK,c.TAR, c.WOOD,c.WOOD_1,c.LEAF,c.LEAF_1, c.METAL, c.METAL_MOLTEN, c.FIRE, c.METEOR],
+                tools: [c.ERASE, c.MOVE,c.FISHTOOL,c.TREETOOL, c.FLIP_VERTICALLY, c.ENABLE_FALLTHROUGH, u, h, E, p, P, H,q,Q,D, J,Y, c.WALL, c.SAND,c.ERASE_SLASH,c.FIRE_SLASH,c.HOT_SLASH,c.COLD_SLASH, c.WATER,  c.SOIL, c.GRAVEL, c.COAL, c.THERMITE,  c.ROCK_TEMPLATES, c.TEMPLATES, c.ROCK,c.TAR, c.WOOD,c.WOOD_1,c.LEAF,c.LEAF_1,c.GRASSPLACE, c.GLASS,c.METAL, c.STEEL, c.BRASS, c.GLASS_MOLTEN,c.METAL_MOLTEN,c.STEEL_MOLTEN, c.BRASS_MOLTEN,c.LAVA, c.FIRE, c.METEOR],
                 
                 scene: {
                     init: function(n, r) {
