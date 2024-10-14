@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,26 +10,29 @@
 
     <meta name="author" content="Patrik Harag">
     <meta property="og:site_name" content="SandSaga.com">
-    <meta name="Description" content="The Sand Saga is a next-gen falling-sand game. It allows players to experiment with various elements, such as sand, soil, water and fire. Sandbox is one of its scenarios.">
-    <meta property="og:description" content="The Sand Saga is a next-gen falling-sand game. It allows players to experiment with various elements, such as sand, soil, water and fire. Sandbox is one of its scenarios.">
-    <meta property="og:title" content="Sandbox">
+    
+    
+    <meta property="og:title" content="Snapshot">
     <meta property="og:image" content="/social-preview.png">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=1">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=1">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png?v=1">
     <link rel="manifest" href="/site.webmanifest?v=3">
     <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#ffc40d">
     <link rel="shortcut icon" href="/favicon.ico?v=1">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#24272b">
 
-    <title>Sand Saga - Sandbox</title>
+    <title>Sand Saga - Snapshot</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-    <style>/* Sand Saga; Patrik Harag, https://harag.cz; all rights reserved */body{background-color:#fff;background-image:url(https://files.harag.cz/www/app/sand-saga/img-noise.png);background-position:0 0;background-size:200px 200px;overflow-x:hidden}#page-content-wrapper{min-height:100vh;min-height:100dvh;min-width:100vw;min-width:100dvw}@media (min-width:1360px){#page-content-wrapper{min-width:0;width:100%}}.navbar,.sand-saga-footer{background-color:#343a40;background-image:url(https://files.harag.cz/www/app/sand-saga/img-noise.png);background-position:0 0;background-size:100px 100px}.navbar{margin-bottom:1em}.spacer{flex:1 1 auto;padding-top:2em}.navbar .nav-link,.navbar .navbar-brand,.navbar .navbar-text{padding:.25rem;white-space:nowrap}.navbar .navbar-text{display:block}.navbar .navbar-brand img{height:24px;vertical-align:bottom;width:24px}.navbar .nav-item-text{display:none}.navbar .dropdown-menu{left:-10em;padding:1em;width:15em}.navbar .dropdown-menu li{margin-bottom:.5em}h1{font-size:1rem;padding-left:.5rem;padding-right:.5rem}@media (min-width:500px){.navbar .nav-link,.navbar .navbar-brand,.navbar .navbar-text{padding:.25rem}h1{font-size:1rem}}@media (min-width:768px){h1{font-size:1.5rem}.navbar .navbar-brand img{height:32px;width:32px}.navbar .nav-item-text{display:inline}}@media (min-width:1024px){.navbar .nav-link,.navbar .navbar-brand,.navbar .navbar-text{padding:.5rem}h1{font-size:2rem}}.bi,.btn-harag-cz img{vertical-align:-.125em}kbd{background-color:rgba(0,0,0,.03);border:1px solid #d3d3d3;margin:0 1px;padding:0 1px}kbd,pre{color:#000}pre{border:1px solid rgba(0,0,0,.125);border-left:4px solid;border-radius:.25rem;padding:1rem}.sand-saga-play-sandbox{margin-bottom:1em;margin-top:2em;text-align:center}.sand-saga-play-sandbox .bi{height:1em;vertical-align:-.125em;width:1em}.sand-saga-scenario-list{margin-bottom:1rem}.alert{background-image:url(https://files.harag.cz/www/app/sand-saga/img-noise.png);background-position:0 0;background-size:200px 200px}.alert-info{background-color:#ececec;border-color:var(--bs-border-color)}.sand-saga-sand-footer{background-image:url(https://files.harag.cz/www/app/sand-saga/img-footer.png);background-position:bottom;background-repeat:repeat-x;background-size:1380px 80px;height:80px;image-rendering:pixelated}.sand-saga-footer{color:#b7b7b7;font-size:small}.sand-saga-footer a{color:#639bfd}.sand-saga-bg-image{border-radius:8px;pointer-events:none;position:absolute;user-select:none;z-index:-1}@media (max-width:1099px){.sand-saga-bg-image{display:none}}.btn-discord{--bs-btn-bg:#5865f2}.workshop-item{display:flex}.workshop-item .item-image{align-items:center;display:flex;flex-shrink:0;justify-content:center;width:200px}.workshop-item .item-image img{max-height:200px;max-width:200px;outline:1px solid #b7b7b7}.workshop-item .item-description{flex-grow:1;padding-left:1em;padding-top:1em}.workshop-item .item-description a.btn,.workshop-item .item-description button{margin-right:.5em}</style>
+    <link rel="stylesheet" type="text/css" href="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-saga_fe.min.css">
     
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8NDXLE87V"></script>
@@ -40,75 +42,37 @@
         gtag('js', new Date());
         gtag('config', 'G-V8NDXLE87V');
     </script>
-    <style>/* Sand Game JS; Patrik Harag, https://harag.cz; all rights reserved */.sand-game-component .bi{vertical-align:-.125em}.sand-game-component.drag-and-drop-highlight{outline:thick dashed rgba(0,129,255,.76);outline-offset:2px}.sand-game-component .sand-game-canvas-holder{border-bottom:1px solid #b7b7b7;border-top:1px solid #b7b7b7}.sand-game-component .sand-game-canvas-component .sand-game-canvas{outline:1px solid #b7b7b7}@media (max-width:575px){.sand-game-component .sand-game-canvas-component{margin-left:-15px;margin-right:-15px}.sand-game-component .sand-game-canvas-component .sand-game-canvas{outline:none}}.sand-game-component .sand-game-canvas-overlay{cursor:crosshair;user-select:none}.sand-game-component .sand-game-canvas-overlay .sand-game-marker{font-size:small;padding:3pt}.sand-game-component .sand-game-canvas-overlay .sand-game-splash{background-color:hsla(0,0%,63%,.8);cursor:auto;display:flex;flex-direction:column;margin:auto;max-height:75%;max-width:600px;min-height:200px;padding:1em;pointer-events:auto;position:relative;top:20%;width:70%}.sand-game-component .sand-game-canvas-overlay .sand-game-splash .sand-game-splash-content{flex:1 1 auto;overflow-y:auto}.sand-game-component .sand-game-canvas-overlay .sand-game-splash .sand-game-splash-footer a,.sand-game-component .sand-game-canvas-overlay .sand-game-splash .sand-game-splash-footer button{margin-right:.5em;margin-top:.5em}@media (max-width:768px){.sand-game-component .sand-game-canvas-overlay .sand-game-splash{font-size:90%;max-height:85%;top:10%;width:90%}.sand-game-component .sand-game-canvas-overlay .sand-game-splash .sand-game-splash-footer a,.sand-game-component .sand-game-canvas-overlay .sand-game-splash .sand-game-splash-footer button{font-size:90%}}.sand-game-component .sand-game-canvas-overlay .sand-game-objectives-list{background-color:hsla(0,0%,63%,.8);margin-left:10pt;padding:1em;position:absolute;right:10pt;top:10pt}.sand-game-component .sand-game-canvas-overlay .sand-game-objectives-list .sand-game-objective-icon{margin-right:.5em;vertical-align:.1em}@media (max-width:768px){.sand-game-component .sand-game-canvas-overlay .sand-game-objectives-list{font-size:small;padding:.5em 1em}}.sand-game-component .sand-game-tools{display:flex;justify-content:space-between;user-select:none;width:100%}.sand-game-component .sand-game-tools .sand-game-tools-left{display:inline}.sand-game-component .sand-game-tools .sand-game-tools-right{display:inline;margin-left:auto}.sand-game-component .sand-game-tools .btn-sand-game-tool{border:none;margin-bottom:4pt;margin-right:3pt}.sand-game-component .sand-game-tools .color-sand-game-tool{display:inline-block;position:relative}.sand-game-component .sand-game-tools .color-sand-game-tool input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}.sand-game-component .sand-game-tools .btn-sand-game-tool:hover{filter:brightness(103%)}.sand-game-component .sand-game-tools .dropdown-menu.show.sand-game-column-count-2{column-count:2}.sand-game-component .sand-game-tools .dropdown-menu .btn-sand-game-tool{margin-bottom:0}.sand-game-component .sand-game-tools .dropdown-menu .btn-sand-game-tool:hover{filter:none}.sand-game-component .sand-game-tools .btn-sand-game-tool .bi{margin-right:.25em}.sand-game-component .sand-game-tools .btn-sand-game-tool.selected,.sand-game-component .sand-game-tools .color-sand-game-tool.selected,.sand-game-component .sand-game-tools .dropdown-item.selected{outline:1px solid red}.sand-game-component .sand-game-tools .btn-sand-game-tool.adjust-scale{background-color:#e6e6e6;color:#000;margin-right:0}.sand-game-component .sand-game-tools .btn-sand-game-tool.adjust-scale svg{height:20px;transform:scale(1.4);vertical-align:text-top;width:20px}.sand-game-component .sand-game-tools .btn-sand-game-tool.adjust-scale .bi{margin-right:0}.sand-game-component .sand-game-options{display:flex;justify-content:space-between;width:100%}.sand-game-component .sand-game-options .sand-game-options-left{display:inline}.sand-game-component .sand-game-options .sand-game-options-right{display:inline;margin-left:auto}.sand-game-component .sand-game-options .btn{color:gray;font-size:75%;margin-right:.5em;padding:0 .5em;vertical-align:baseline}.sand-game-component .sand-game-options .btn.btn-link{text-decoration:none}.sand-game-component .sand-game-options .btn .bi{height:12px;width:12px}.sand-game-component .sand-game-options .dropdown-menu .btn{font-size:100%}.sand-game-component .sand-game-options .dropdown-menu{font-size:small;user-select:none;width:300px}.sand-game-component .sand-game-options .status-stopped{color:blue}.sand-game-component .sand-game-options .status-best,.sand-game-component .sand-game-options .status-good{color:green}.sand-game-component .sand-game-options .status-medium{color:#fc0}.sand-game-component .sand-game-options .status-low{color:#f40}.sand-game-component .sand-game-options .status-poor{color:red}.sand-game-component .sand-game-views:has(div){margin:1em 0 2em}.sand-game-component .sand-game-views .scenes-label{color:gray;display:inline-block;font-size:small;margin-left:-6px;margin-right:-3px;padding-left:6px;transform:rotate(-70deg);user-select:none}.sand-game-component .sand-game-views .scenes{display:inline}.sand-game-component .sand-game-views .scenes .scene{color:#000;cursor:pointer;display:inline-block;margin-bottom:.5em;margin-right:3pt;user-select:none;white-space:nowrap}.sand-game-component .sand-game-views .scenes .scene .card-title{font-size:100%;font-weight:500}.sand-game-component .sand-game-views .scenes .scene.visited-scene,.sand-game-component .sand-game-views .scenes .scene:hover{background-color:#ebebeb}.sand-game-component .sand-game-views .scenes .scene.visited-scene:hover{background-color:#dedede}.sand-game-component .sand-game-views .scenes .scene.selected-scene{background-color:#ffffbd}.sand-game-component .sand-game-views .scenes .scene.selected-scene:hover{background-color:#e8e8a5}.sand-game-component .element-size-options input{display:none}.sand-game-component .element-size-options label img{background-color:#fff;border-radius:.25rem;cursor:pointer;height:31pt;user-select:none;width:47pt}.sand-game-component .element-size-options label img:hover{background-color:#ebebeb}.sand-game-component .element-size-options input:checked+label img{background-color:#ffffbd}.sand-game-component .element-size-options input:checked+label img:hover{background-color:#e8e8a5}.sand-game-component .alignment-grid{display:grid;gap:3px;grid-template-columns:repeat(3,1em);grid-template-rows:repeat(3,1em);justify-content:left}.sand-game-component .alignment-cell{background-color:#bebebe;display:flex;height:1em;width:1em}.sand-game-component .alignment-cell:hover{background-color:#c5c5c5}.sand-game-component .alignment-cell input{display:none}.sand-game-component .alignment-cell input:checked+label{background-color:#000}.sand-game-component .alignment-cell label{display:block;height:100%;width:100%}.sand-game-component .test-tools .btn{font-size:75%;line-height:2;margin-bottom:3pt;margin-right:3pt;padding:0 .4em}.sand-game-component .sand-game-templates .template-button{background-position:top;background-position-y:5px;background-repeat:no-repeat;height:100px;margin-right:.5em;margin-top:.5em;padding-top:50px;width:100px}.sand-game-component .visible-on-big-screen-only{display:none}@media (min-width:768px){.sand-game-component .visible-on-big-screen-only{display:initial}}</style>
+  <link rel="stylesheet" type="text/css" href="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-game-js.min.css">
 
   <script defer src="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-game-js.umd.min.js"></script>
-  <script defer src="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-saga_scenario_sandbox.umd.min.js"></script>
+
+  <script defer src="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-saga_scenario_sandbox-snapshot.umd.min.js"></script>
 
   <script>
-    // global variables, accessible from browser console
-    var sandGame = null;
-    var brushes = null;
-
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
       if (window.SandGameJS !== undefined && window.SandSaga !== undefined) {
-        var root = document.getElementById('sand-game-root');
+        const root = document.getElementById('sand-game-root');
 
-        var config = {
-          version: '24w37a',
+        const config = {
+          version: '24w41a',
+          scenario: 'sandbox-snapshot',
+          snapshotUrl: '/api/user/workshop/items/160/data.sgjs',
           debug: false,
-          scenario: 'sandbox',
-          lobbyUrl: '/',
-          nextUrl: '/s/sandbox-rain/play',
-          includeSnapshot: false
         };
+        SandSaga.init(root, config);
 
-        var completed = false;
-
-         
-        config.supporter = true;
-        config.onCompleted = function () {
-          completed = true;
-        };
-
-        var controller = SandSaga.init(root, config);
-        if (controller !== undefined) {
-          controller.addOnInitialized(function (s) {
-            sandGame = s;
-          });
-          brushes = SandGameJS.brushes;
-          console.log('Globals:');
-          console.log('  sandGame, brushes');
-          console.log('Examples:');
-          console.log('  sandGame.graphics().drawLine(10, 10, 300, 150, 2, brushes.sand);');
-          console.log('  sandGame.graphics().draw(100, 20, brushes.meteor);');
-        }
-
-        setTimeout(function() {
-          window.addEventListener('beforeunload', function(e) {
-            if (!completed || config.scenario.includes('sandbox')) {
-              e.preventDefault();
-              return "Are you sure you want to exit?";
-            }
-          });
-        }, 60 * 1000);
       } else {
-        var placeholder = document.getElementById('sand-game-placeholder-content');
-        placeholder.innerHTML = '<span style="color: red; font-weight: bold;">' +
-            'Failed to load the game. Possible reasons:<br>' +
-            '&bull; Your browser may not support modern JavaScript<br>' +
-            '&bull; Internet connection<br>' +
-            '&bull; A server side problem' +
-            '</span>';
+        const placeholder = document.getElementById('sand-game-root');
+        placeholder.innerHTML = '<span style="color: red; font-weight: bold;">Failed to load the game.</span>';
       }
     });
   </script>
 
-    <script src="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-saga_fe_4supporter_18590f0cf6b5.umd.min.js"></script>
+    <script src="https://files.harag.cz/www/app/sand-saga/prod/24w41a/sand-saga_fe_4supporter_18590f0cf6b5.umd.min.js"></script
   </head>
 
   <body class="d-flex">
-    <div id="page-content-wrapper" class="d-flex flex-column">
+    <div id="sga-page-content-wrapper" class="d-flex flex-column">
 
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container"><div class="row w-100">
@@ -120,23 +84,28 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-play-fill" viewBox="0 0 16 16">
       <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
     </svg>
-    Sandbox
+    Workshop Item: Oil Ocean V2
   </span>
           </div>
           <div class="col" style="width: 0;">
             <ul class="navbar-nav" style="flex-direction: row-reverse;">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ff5900;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                   </svg>
                   <span class="nav-item-text">Account</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><strong>Logged</strong></li>
-                  <li>ge0plex</li>
-                  <li>Role: supporter</li>
-                  <a href="/logout" class="btn btn-danger">Logout</a>
+                  <li>
+                    <a href="/login/discord" class="btn btn-primary btn-discord">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                        <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+                      </svg>
+                      Continue with Discord
+                    </a>
+                  </li>
+                  <li><a href="/login" class="btn btn-secondary">Register</a></li>
                 </ul>
               </li>
             </ul>
@@ -144,18 +113,18 @@
         </div></div>
       </nav>
 
-      <noscript>
-        <div class="container"><div class="row"><div class="col-12">
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            For full functionality of this site it is necessary to enable JavaScript.
-            Here are the <a href="https://www.enablejavascript.io/">
-              instructions how to enable JavaScript in your web browser</a>.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        </div></div></div>
-      </noscript>
-
       <main class="container">
+
+        <div class="row"><div class="col-12"><div id="sga-alerts">
+          <noscript>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              For full functionality of this site it is necessary to enable JavaScript.
+              Here are the <a href="https://www.enablejavascript.io/">instructions how to enable JavaScript in your web browser</a>.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </noscript>
+        </div></div></div>
+
   <div id="sand-game-root" style="margin-bottom: 2em;">
     <!-- Sand Game JS placeholder -->
     <div style="user-select: none;">
@@ -170,12 +139,19 @@
       <div style="height: 20vh"></div>
     </div>
   </div>
-  <div id="sand-saga-alerts" style="font-size: small;">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      Discuss about Sand Saga and this scenario on our <a href="https://discord.gg/j8G37wFX32" target="_blank">Discord</a>.
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+
+  <div class="alert alert-info">
+    <p><strong>Workshop Item by <span style="color: #ff5900">ge0plex</span></strong></p>
+    <p><strong>Name:</strong> Oil Ocean V2</p>
+    <p><strong>Description:</strong> A giant oil rig, placed in a contaminated ocean to cleanse it</p>
   </div>
+
+  <p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+    </svg>
+    <a href="/workshop">back to workshop</a>
+  </p>
       </main>
 
       <div class="spacer"></div>
