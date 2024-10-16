@@ -939,4 +939,110 @@ const img$1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmH
 
 This looks more complex than it really is- the actual definition is: `const img$1 = "";`, the inside is actually just a Base64 String, which is a image converted to text. To make a Base64 string, you need a tool, I find that <a href="https://www.base64-image.de/">Base64 Image Tool</a> works very well. To use, simply input a image and click *copy image* , and insert it between the "" marks on the image definition.
 
+**Last setup**
+The creator of Sand Saga, created this small component to fix some weird issues in the game, so add this after both image and start definitions
+```
+
+class SandSagaUtils {
+
+    static widthFraction(sandGame, d) {
+        return Math.trunc(sandGame.getWidth() / d);
+    }
+
+    static heightFraction(sandGame, d) {
+        return Math.trunc(sandGame.getHeight() / d);
+    }
+
+    static mapPositionFracWH(sandGame, wFrac, hFrac, maxRat) {
+        let maxW = undefined;
+        let maxH = undefined;
+        if (maxRat !== undefined) {
+            if (maxRat === 1) {
+                const m = Math.min(sandGame.getWidth(), sandGame.getHeight());
+                maxW = m;
+                maxH = m;
+            } else if (maxRat > 1) {
+                maxW = Math.min(sandGame.getWidth(), sandGame.getHeight() * maxRat);
+                maxH = maxW / maxRat;
+            } else {
+                maxH = Math.min(sandGame.getHeight(), sandGame.getWidth() / maxRat);
+                maxW = maxH * maxRat;
+            }
+        }
+
+        const w = (maxW === undefined) ? sandGame.getWidth() : Math.min(maxW, sandGame.getWidth());
+        const h = (maxH === undefined) ? sandGame.getHeight() : Math.min(maxH, sandGame.getHeight());
+        const offsetX = (maxW === undefined) ? 0 : Math.trunc((sandGame.getWidth() - w) / 2);
+        const offsetY = (maxH === undefined) ? 0 : Math.trunc((sandGame.getHeight() - h) / 2);
+        const scaleX = w / wFrac;
+        const scaleY = h / hFrac;
+        return new PositionMapper(offsetX, offsetY, scaleX, scaleY);
+    }
+}
+
+/**
+ *
+ * @author Patrik Harag
+ * @version 2024-02-12
+ */
+class PositionMapper {
+
+    #offsetX;
+    #offsetY;
+    #scaleX;
+    #scaleY;
+
+    constructor(offsetX, offsetY, scaleX, scaleY) {
+        this.#offsetX = offsetX;
+        this.#offsetY = offsetY;
+        this.#scaleX = scaleX;
+        this.#scaleY = scaleY;
+    }
+
+    x(rx) {
+        return Math.trunc(this.#offsetX + (rx * this.#scaleX));
+    }
+
+    y(ry) {
+        return Math.trunc(this.#offsetY + (ry * this.#scaleY));
+    }
+
+    w(s) {
+        return Math.trunc(s * this.#scaleX);
+    }
+
+    h(s) {
+        return Math.trunc(s * this.#scaleY);
+    }
+}
+
+function extendTool(codename, palette, r, g, b, originalBrush, displayName, x, size) {
+    let brush = Brushes.colorRandomize(x, Brushes.colorPaletteRandom(palette, originalBrush));
+    return Tools.roundBrushTool(brush, size, ToolDefs.SAND.getInfo().derive({
+        codeName: codename,
+        displayName: displayName,
+        badgeStyle: {
+            backgroundColor: `rgb(${r},${g},${b})`
+        }
+    }))
+}
+```
+Now, Your ready to add some new **Elements**!
+
+</details>
+
+<details>
+    
+<summary>2: Adding some new elements, and placing them</summary>
+
+# Adding a new material
+Adding new materials (also called Brushes) to the game is easier than you think, especially because of the function we implemented- extendTool. The extendTool function makes it easier to create new elements, by only writing one line of code, here is a simple example, for the Blue Cheese material.
+```
+const BLUE_CHEESE = extendTool("blue_cheese", "217,205,181\r\n201,195,165\r\n201,181,148\r\n62,102,141\r\n154,167,180", 62, 102, 141, BrushDefs.SAND, "Blue Cheese", 4, ToolDefs.DEFAULT_SIZE);
+```
+Here is it Disected extendTool("ElementName", "R,G,B\r\n\R,G,B", *Red Number*, *Blue Number*, *Green Number*, BrushDefs.ELEMENTNAME, "Display Name", *Color Randomization Number*, ToolDefs.DEFAULT_SIZE or *Brush Size Number* );
+It is a very long function, but for the blue cheese, the result is:
+![image](https://github.com/user-attachments/assets/0e760854-10a4-4f4d-a505-9ef2321a422e)
+A sandlike element with a grainy appearance, and the name *Blue Cheese*
+
 </details>
