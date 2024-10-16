@@ -5,9 +5,7 @@ How Cheese Game actually works, and how you can make your own custom Scenarios!
 This is the code for cheese game, it is a JavaScript file, which is what sandsaga uses for scenarios.
 Conviniently, you can copy all text from *CHeese-Game-sgjs.js* into the <a href="https://sandsaga.com/dev/scenario-ide">Sand Saga IDE</a>
 <details>
-
 <summary>Full .JS file for cheese game</summary>
-
 
 ```javascript
 //Cheese Game; mecanix creations
@@ -908,12 +906,11 @@ const config = {
 
 return config;
 ```
-
 </details>
+
 # Part 1: Definition
-for sand saga, you need to define what components your scene uses, for cheese game, there is most of the avaliable definitions:
+for Sand Saga, you need to define what components your scene uses, for cheese game, there is most of the avaliable definitions:
 ```javascript
-//Cheese Game; mecanix creations
 const Brushes = window.SandGameJS.Brushes;
 const BrushDefs = window.SandGameJS.BrushDefs;
 const Tools = window.SandGameJS.Tools;
@@ -924,3 +921,16 @@ const PredicateDefs = window.SandGameJS.PredicateDefs;
 const EntityFactories = window.SandGameJS.EntityFactories;
 ```
 
+**What each component does:**
+- BrushDefs lets you define custom elements, and Brushes is for the built in brushes EG: sand, gravel, thermite etc.
+- Tools & ToolDefs lets you define and use built-in tools in your scene
+- Scenes & SceneDefs are for making and using built-in & custom scenes in your scenario
+- PredicateDefs & EntityFactories are for complex components of the game, and so far I have not used them in Cheese Game, but its probably good to include them if custom entities are supported
+
+Defining images (for templates & such) is very easy
+```javascript
+
+const img$1 = "data:image/png;base64,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";
+```
+
+This looks more complex than it really is
