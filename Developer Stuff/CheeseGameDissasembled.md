@@ -5,7 +5,7 @@ How Cheese Game actually works, and how you can make your own custom Scenarios!
 This is the code for cheese game, it is a JavaScript file, which is what sandsaga uses for scenarios.
 Conviniently, you can copy all text from *CHeese-Game-sgjs.js* into the <a href="https://sandsaga.com/dev/scenario-ide">Sand Saga IDE</a>
 
-```
+```javascript
 //Cheese Game; mecanix creations
 const Brushes = window.SandGameJS.Brushes;
 const BrushDefs = window.SandGameJS.BrushDefs;
