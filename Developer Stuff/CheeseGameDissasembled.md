@@ -908,6 +908,10 @@ return config;
 ```
 </details>
 
+<details>
+    
+<summary>1: Defining Your Scene</summary>
+
 # Part 1: Definition
 for Sand Saga, you need to define what components your scene uses, for cheese game, there is most of the avaliable definitions:
 ```javascript
@@ -934,3 +938,5 @@ const img$1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmH
 ```
 
 This looks more complex than it really is- the actual definition is: `const img$1 = "";`, the inside is actually just a Base64 String, which is a image converted to text. To make a Base64 string, you need a tool, I find that <a href="https://www.base64-image.de/">Base64 Image Tool</a> works very well. To use, simply input a image and click *copy image* , and insert it between the "" marks on the image definition.
+
+</details>
