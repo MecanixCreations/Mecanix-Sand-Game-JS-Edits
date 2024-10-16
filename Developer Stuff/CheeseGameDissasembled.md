@@ -910,4 +910,17 @@ return config;
 ```
 
 </details>
+# Part 1: Definition
+for sand saga, you need to define what components your scene uses, for cheese game, there is most of the avaliable definitions:
+```javascript
+//Cheese Game; mecanix creations
+const Brushes = window.SandGameJS.Brushes;
+const BrushDefs = window.SandGameJS.BrushDefs;
+const Tools = window.SandGameJS.Tools;
+const ToolDefs = window.SandGameJS.ToolDefs;
+const Scenes = window.SandGameJS.Scenes;
+const SceneDefs = window.SandGameJS.SceneDefs;
+const PredicateDefs = window.SandGameJS.PredicateDefs;
+const EntityFactories = window.SandGameJS.EntityFactories;
+```
 
