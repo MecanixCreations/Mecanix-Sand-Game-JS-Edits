@@ -913,6 +913,7 @@ return config;
 <summary>1: Defining Your Scene</summary>
 
 # Part 1: Definition
+**Important: do not add anything if it is already in the code**
 for Sand Saga, you need to define what components your scene uses, for cheese game, there is most of the avaliable definitions:
 ```javascript
 const Brushes = window.SandGameJS.Brushes;
@@ -940,7 +941,7 @@ const img$1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmH
 This looks more complex than it really is- the actual definition is: `const img$1 = "";`, the inside is actually just a Base64 String, which is a image converted to text. To make a Base64 string, you need a tool, I find that <a href="https://www.base64-image.de/">Base64 Image Tool</a> works very well. To use, simply input a image and click *copy image* , and insert it between the "" marks on the image definition.
 
 **Last setup**
-The creator of Sand Saga, created this small component to fix some weird issues in the game, so add this after both image and start definitions
+The creator of Sand Saga, created this small component to fix some weird issues in the game, so add this after both image and start definitions **Only add the extendTool Function if your ide has code already!**
 ```javascript
 
 class SandSagaUtils {
@@ -1027,7 +1028,7 @@ function extendTool(codename, palette, r, g, b, originalBrush, displayName, x, s
     }))
 }
 ```
-Now, Your ready to add some new **Elements**!
+Now, Your ready to add some new **Elements**!\
 
 </details>
 
@@ -1063,13 +1064,65 @@ The first line creates the actual element, which the name **MUST** be all caps, 
 const CHEESE_BRICK = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$a, BrushDefs.WALL)),
 ```
 Tools.roundBrushTool is the basis for almost all tools in sand saga, other than the rock tool, the nature tools, and in cheese game's case, the Templates menu. Tools.RoundBrushTool is very simple to use, if you use it for a single component, for example, Brushes.colorTexture, it would look like this:\
-Tools.RoundBrushTool(Brushes.colorTexture(*Image Name*, BrushDefs.ELEMENTNAME))\
+Tools.RoundBrushTool(Brushes.colorTexture(*Image Name*, BrushDefs.ELEMENTNAME))... *script continues*\
 But, if you want a little extra, you can actually stack a couple of these components!\
 
-Tools.RoundBrushTool(Brushes.colorRandomize(*Randomize number*,Brushes.colorTexture(*Image Name*, BrushDefs.ELEMENTNAME)))\
+Tools.RoundBrushTool(Brushes.colorRandomize(*Randomize number*,Brushes.colorTexture(*Image Name*, BrushDefs.ELEMENTNAME))... *script continues*\
 
 This would add a little roughness to the Texture, resulting in:\
 ![image](https://github.com/user-attachments/assets/33e0465c-ffb9-49eb-af33-79da15980c0d)\
+It might be a little hard to see, but there is some graininess to the texture.\
+The rest of the script is very important\
+```javascript
+const CHEESE_BRICK = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$a, BrushDefs.WALL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
+    codeName: "cheese_brick",
+    displayName: "Cheese Bricks",
+    badgeStyle: {
+        backgroundColor: "#fe9320"
+    }
+}));
+```
+after the previous section, we have a ToolDefs.DEFAULT_SIZE. This component is the size of the brush, and can be a number, the Slice tool uses a thinner size brush. ToolDefs.ELEMENTNAME.getInfo().derive is a large component that sets what the element looks like in the toolbar
+```
+ToolDefs.METAL.getInfo().derive({
+    codeName: "cheese_brick",
+    displayName: "Cheese Bricks",
+    badgeStyle: {
+        backgroundColor: "#fe9320"
+    }
+}
+```
+\
+![image](https://github.com/user-attachments/assets/2cde2ce8-c5d6-480e-a33b-cd09bb7897e4)\
+Here is the Cheese Bricks tool\
 
+**All of the easily useable functions:**
+- Brushes.color(229, 112, 24, BrushDefs.ELEMENTNAME) This Adds a single color to the element, very basic
+- Brushes.colorRandomize(*Randomize number*, Brushes.color(*Red number*, *Green number*, *Blue number*, BrushDefs.ELEMENTNAME)) ColorRandomize Needs another component inside of it
+- Brushes.colorTexture(*name of texture*, BrushDefs.ELEMENTNAME) This will add a repeating texture to your element
+- Brushes.colorPaletteRandom(*R,G,B\r\nR,G,B*, BrushDefs.ELEMENTNAME) Chooses a random color from an array, make sure to seperate each color with `\r\n`
 
+## Refrences for components
+BrushDefs:
+- SAND
+- GRAVEL
+- SOIL
+- THERMITE
+- COAL
+- ROCK
+- METAL
+- PLASTIC
+- BRICK
+- WALL
+- TREE
+- TREE_WOOD
+- TREE_LEAF
+- GRASS
+- AIR
+- FIRE
+- WATER
+- STEAM
+- NAPALM
+- ACID
+- OIL
 </details>
