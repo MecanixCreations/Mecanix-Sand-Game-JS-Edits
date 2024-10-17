@@ -941,7 +941,7 @@ This looks more complex than it really is- the actual definition is: `const img$
 
 **Last setup**
 The creator of Sand Saga, created this small component to fix some weird issues in the game, so add this after both image and start definitions
-```
+```javascript
 
 class SandSagaUtils {
 
@@ -1037,12 +1037,39 @@ Now, Your ready to add some new **Elements**!
 
 # Adding a new material
 Adding new materials (also called Brushes) to the game is easier than you think, especially because of the function we implemented- extendTool. The extendTool function makes it easier to create new elements, by only writing one line of code, here is a simple example, for the Blue Cheese material.
-```
+```javascript
 const BLUE_CHEESE = extendTool("blue_cheese", "217,205,181\r\n201,195,165\r\n201,181,148\r\n62,102,141\r\n154,167,180", 62, 102, 141, BrushDefs.SAND, "Blue Cheese", 4, ToolDefs.DEFAULT_SIZE);
 ```
-Here is it Disected extendTool("ElementName", "R,G,B\r\n\R,G,B", *Red Number*, *Blue Number*, *Green Number*, BrushDefs.ELEMENTNAME, "Display Name", *Color Randomization Number*, ToolDefs.DEFAULT_SIZE or *Brush Size Number* );
-It is a very long function, but for the blue cheese, the result is:
-![image](https://github.com/user-attachments/assets/0e760854-10a4-4f4d-a505-9ef2321a422e)
+Here is it Disected extendTool("ElementName", "R,G,B\r\n\R,G,B", *Red Number*, *Blue Number*, *Green Number*, BrushDefs.ELEMENTNAME, "Display Name", *Color Randomization Number*, ToolDefs.DEFAULT_SIZE or *Brush Size Number* );\
+It is a very long function, but for the blue cheese, the result is:\
+
+![image](https://github.com/user-attachments/assets/0e760854-10a4-4f4d-a505-9ef2321a422e)/
+
 A sandlike element with a grainy appearance, and the name *Blue Cheese*
+
+**Adding a new material (the long way)**
+This way is better for making complex elements, like the Cheese Bricks, which have a custom texture.\
+```javascript
+const CHEESE_BRICK = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$a, BrushDefs.WALL)), ToolDefs.DEFAULT_SIZE, ToolDefs.METAL.getInfo().derive({
+    codeName: "cheese_brick",
+    displayName: "Cheese Bricks",
+    badgeStyle: {
+        backgroundColor: "#fe9320"
+    }
+}));
+```
+The first line creates the actual element, which the name **MUST** be all caps, otherwise it might not work correctly, and must not have any spaces.
+```javascript
+const CHEESE_BRICK = Tools.roundBrushTool(Brushes.colorRandomize(4, Brushes.colorTexture(img$a, BrushDefs.WALL)),
+```
+Tools.roundBrushTool is the basis for almost all tools in sand saga, other than the rock tool, the nature tools, and in cheese game's case, the Templates menu. Tools.RoundBrushTool is very simple to use, if you use it for a single component, for example, Brushes.colorTexture, it would look like this:\
+Tools.RoundBrushTool(Brushes.colorTexture(*Image Name*, BrushDefs.ELEMENTNAME))\
+But, if you want a little extra, you can actually stack a couple of these components!\
+
+Tools.RoundBrushTool(Brushes.colorRandomize(*Randomize number*,Brushes.colorTexture(*Image Name*, BrushDefs.ELEMENTNAME)))\
+
+This would add a little roughness to the Texture, resulting in:\
+![image](https://github.com/user-attachments/assets/33e0465c-ffb9-49eb-af33-79da15980c0d)\
+
 
 </details>
