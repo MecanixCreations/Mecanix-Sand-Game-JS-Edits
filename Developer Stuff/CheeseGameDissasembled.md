@@ -1,5 +1,5 @@
 
-# A New Helpful Guide to making Sand Saga Scenes, made with chez game!
+# A New Helpful Guide to making Sand Saga Scenes!
 How Cheese Game actually works, and how you can make your own custom Scenarios!
 
 This is the code for cheese game, it is a JavaScript file, which is what sandsaga uses for scenarios.
